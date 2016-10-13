@@ -17,9 +17,6 @@
 			<h2>Use Case</h2>
 		<p>Carla bids on items from auctionnation.com using her desktop PC. She can purchase items on ebay, but perfers seeing items first and saving on shipping cost by picking up items from Auction Nation's wherehouses which are located mostly in Pheonix AZ. Carla does not only buy from Auction Nation, but keeps an eye on new actions for items that she could sell in her store. Carla wants to see pictures of items, and description of items in order to determine if its an item she will be interested in buying for her store.</p>
 		<h2>Identify Entities</h2>
-		<ls>
-			<
-		</ls>
 	</body>
 </html>
 
