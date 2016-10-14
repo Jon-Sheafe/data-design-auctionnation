@@ -37,10 +37,13 @@
 				<ul>
 					<li>userId: primary key</li>
 					<li>userName</li>
-					<li>userAddress</li>
 					<li>userEmail</li>
-					<li>userPassword</li>
-					<li>userAggrementOfTerms</li>
+					<li>userPhone</li>
+					<li>userStreet1</li>
+					<li>userStreet2</li>
+					<li>userCity</li>
+					<li>userState</li>
+					<li>userZip</li>
 				</ul>
 				<h4>Lot Entity</h4>
 				<ul>
