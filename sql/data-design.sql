@@ -7,9 +7,9 @@ CREATE TABLE `user` (
 	userCity VARCHAR (50) NOT NULL,
 	userState CHAR(2) NOT NULL,
 	userZip CHAR(5) NOT NULL,
-	-- user data
 	UNIQUE (userName,userEmail,userPhone),
 	PRIMARY KEY(userId)
+	-- user data main table
 );
 CREATE TABLE lot (
 	lotId INT UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -22,6 +22,7 @@ CREATE TABLE lot (
 	INDEX(lotId,lotDescription,lotStartBid,lotUserId),
 	FOREIGN KEY(lotUserId) REFERENCES `user`(userId),
 	PRIMARY KEY(lotId)
+	-- create lot table to store items
 );
 CREATE TABLE bid (
 	bidLotId INT UNSIGNED NOT NULL,
@@ -32,4 +33,5 @@ CREATE TABLE bid (
 	FOREIGN KEY(bidLotId) REFERENCES lot(lotId),
 	FOREIGN KEY(bidUserId) REFERENCES `user`(userId),
 	PRIMARY KEY(bidLotid,bidUserId)
+	-- many to many table to track bids
 );
