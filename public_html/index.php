@@ -31,7 +31,7 @@
 					<li>Wining bids requires are automaticly change to user credit card associated to profile </li>
 					<li>email sent to a bidder who won instructed bidder to pickup won items by dead line.</li>
 				</ol></div>
-
+			<div>
 			<h2>Conceptual Model</h2>
 				<h4>User Entity</h4>
 				<ul>
@@ -40,11 +40,12 @@
 					<li>userEmail</li>
 					<li>userPhone</li>
 					<li>userStreet1</li>
-					<li>userStreet2</li>
 					<li>userCity</li>
 					<li>userState</li>
 					<li>userZip</li>
 				</ul>
+			</div>
+			<div>
 				<h4>Lot Entity</h4>
 				<ul>
 					<li>lotId: Primary Key</li>
@@ -54,6 +55,8 @@
 					<li>lotCurrentBidPrice</li>
 					<li>lotBidEndTime</li>
 				</ul>
+			</div>
+			<div>
 				<h4>Bid Entity</h4>
 				<ul>
 					<li>bidUserId: weak Foreign Key from userID</li>
@@ -61,12 +64,15 @@
 					<li>bidDateStamp</li>
 					<li>bidAmount</li>
 				</ul>
+			</div>
+			<div>
 			<h3>Relationships:</h3>
 				<ul>
 					<li>One user can bid on many lots</li>
 					<li>Many lots can have many bids</li>
 					<li>many users can have many bids</li>
 			</ul>
+			</div>
 	</body>
 </html>
 
