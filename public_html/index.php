@@ -73,6 +73,7 @@
 					<li>many users can have many bids</li>
 			</ul>
 			</div>
+		<img src="../img/AuctionNation.png" alt="image of graph">
 	</body>
 </html>
 
