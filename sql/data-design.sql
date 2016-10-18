@@ -19,7 +19,7 @@ CREATE TABLE lot (
 	lotStartBid INT UNSIGNED NOT NULL,
 	lotBidEndTime DATETIME NOT NULL,
 	lotUserId INT UNSIGNED NOT NULL,
-	INDEX(lotId,lotDescription,lotCurrentBidPrice,lotUserId),
+	INDEX(lotId,lotDescription,lotStartBid,lotUserId),
 	FOREIGN KEY(lotUserId) REFERENCES `user`(userId),
 	PRIMARY KEY(lotId)
 );
@@ -27,9 +27,9 @@ CREATE TABLE bid (
 	bidLotId INT UNSIGNED NOT NULL,
 	bidUserId INT UNSIGNED NOT NULL,
 	bidAmount INT UNSIGNED NOT NULL,
-	bidDateStamp,
+	bidDateStamp TIMESTAMP,
 	INDEX(bidLotId,bidUserId,bidAmount),
-	FOREIGN KEY(bidLotId) REFERENCES (lotId),
-	FOREIGN KEY(bidUserId) REFERENCES(userId),
+	FOREIGN KEY(bidLotId) REFERENCES lot(lotId),
+	FOREIGN KEY(bidUserId) REFERENCES `user`(userId),
 	PRIMARY KEY(bidLotid,bidUserId)
 );
