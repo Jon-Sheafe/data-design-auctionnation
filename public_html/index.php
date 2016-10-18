@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<header><h1>Persona Assignment</h1></header>
-		<img id="img" src="../img/AuctionNation.png" alt="Aucton Nation Image">
+		 <!--img id="img" src="../img/AuctionNation.png" alt="Aucton Nation Image"-->
 
 			<div><h2>Persona</h2>
 				<p><b>Name: </b>Carla Humphreys<br>
@@ -73,7 +73,10 @@
 					<li>many users can have many bids</li>
 			</ul>
 			</div>
-		<img src="../img/AuctionNation.png" alt="image of graph">
+		<div>
+			<H2>ERD</H2>
+			<img src="../img/AuctionNation.png" alt="image of graph">
+		</div>
 	</body>
 </html>
 
