@@ -102,7 +102,7 @@ class user {//implements  // \JsonSerializable
 		 * @throw \RangeException if $$newUserName is >50 characters
 		 * @throw \TypeError if $newUnserName is not a string
 		 */
-		Public function setNewUserName(String $newUserName) {
+		Public function setNewUserName(string $newUserName) {
 			// verify the user name is secure
 			$newUserName = trim($newUserName);
 			$newUserName = filter_var($newUserName, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
@@ -121,7 +121,7 @@ class user {//implements  // \JsonSerializable
 	 * accessor method
 	 * @return string of email
 	 */
-		public function getUserEmail(string $newUserEmail) {
+		public function getUserEmail() {
 			return($this->userEmail);
 		}
 
@@ -140,13 +140,101 @@ class user {//implements  // \JsonSerializable
 			if(empty($newUserEmail) === true){
 				throw(new \InvalidArgumentException("user email content is empty or insecure"));
 			}
-			//verify the user email will fit in database
+			//verify the user email wwill fit in database
 			if(strlen($newUserEmail) >125) {
 				throw(new \RangeException("email is to long"));
 			}
 			// store the email
 			$this->userEmail = $newUserEmail;
 		}
+
+	/**
+	 * accessor method for user phone number
+	 *
+	 * @return string required
+	 */
+		public function getUserPhone() {
+			return($this->userPhone);
+		}
+
+		/**
+		 * mutator method for user phone
+		 *
+		 * @param string $NewUserPhone new value of phone number
+		 * @throw \RangeException if $newUserPhone is not positive
+		 * @throw \TypeError if $nreUserPhone is not string and valid phone number
+		 */
+		public function setUserPhone(string $newUserPhone = null) {
+			//verify the phone is secure
+			$newUserPhone = trim($newUserPhone);
+			@$newUserPhone = filter_var($newUserPhone,FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+			if(empty($newUserPhone) === true) {
+				throw (new \InvalidArgumentException("uer phone number content is empty of insecure"));
+			}
+			//verify the user phone will fit database
+			if(strlen($newUserPhone >=10)) {
+				throw (new \RangeException("phone is to long"));
+			}
+			//store phone number
+			$this->userPhone = $newUserPhone;
+		}
+
+		/**
+		 * accessor  method for user street
+		 *
+		 * @return string value of user street address
+		 * */
+		public function getUserAddress() {
+			return($this->userStreet);
+		}
+
+		/**
+		 * mutator mehtod for  street address content
+		 *
+		 * @param string $newUserStreet new value of street address
+		 * @pthrow |InvalidArgumentException if $newUserStreet is not a string or insecure
+		 * @throw \RangeException if $newUserStreet is >= 50 characters
+		 * @throw \TypeError if $newUserStreet is not a string
+		 */
+		public function setUserStreet(string $newUserStreet) {
+			// verify the user street is secure
+			$newUserStreet = trim($newUserStreet);
+			$newUserStreet = filter_var($newUserStreet, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+				if(empty($newUserStreet) === true) {
+					throw(new \InvalidArgumentException("User Street content is empty or insecure"));
+				}
+
+				// verify the user street address will fit the database
+			if(strlen($newUserStreet) >50) {
+				throw(new \RangeException("user street address is too long"));
+			}
+				// store the street address
+				$this->userStreet = $newUserStreet;
+			}
+
+			/**
+			 * accessor method for user city
+			 *
+			 * @return string value of user city
+			 */
+			public function getUserCity() {
+				return($this->userCity);
+			}
+
+	/**
+	 * mutator method for user city
+	 *
+	 * @param string @newUserCity
+	 */
+
+	/**
+	 * me
+	 */
+			public function
+
+
+
+
 
 
 
