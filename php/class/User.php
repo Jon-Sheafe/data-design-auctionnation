@@ -224,13 +224,92 @@ class user {//implements  // \JsonSerializable
 	/**
 	 * mutator method for user city
 	 *
-	 * @param string @newUserCity
+	 * @param string @newUserCity new value
+	 * @throws \InvalidArgumentException if $newUserCity is not a string or valid
+	 * @throws \RangeException if $newUserCity is > 50 characters
+	 * @throws |TypeError if $newUserCity is not a string
 	 */
+	public function setUserCity(string $newUserCity) {
+		// verify the user city data is secure
+		$newUserCity = trim($newUserCity);
+		$newUserCity = filter_var($newUserCity, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+		if(empty($newUserCity) === true) {
+			throw(new \InvalidArgumentException("user city content is empty or insecure"));
+		}
+
+		// verify the user city will fit database
+		if(strlen($newUserCity) >50) {
+			throw(new \RangeException("user city name is too large"));
+		}
+
+		// store the city name
+		$this->userCity = $newUserCity;
+	}
+	/**
+	 * accessor method for user state
+	 *
+	 * @return string value of state abriviation
+	 */
+	public function getUserState() {
+		return($this->userState);
+	}
 
 	/**
-	 * me
+	 * mutator method for state content
+	 *
+	 * @param string $newUserState new value of user state
+	 * @throws \InvalidArgumentException if $newUserState is not a string or insecure
+	 * @throws \RangeException if $newUserState is >2 characters
+	 * @throws \TypeError if $newUserState is not a string
 	 */
-			public function
+	public function setUserState(string $newUserState) {
+		//verif the state data is secure
+		$newUserState = trim($newUserState);
+		$newUserState = filter_var($newUserState, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+		if(empty($newUserState)  === true) {
+			throw(new \InvalidArgumentException("user state is empty or insecure"));
+		}
+		// verify the user state will fit in the database
+		if(strlen($newUserState) >2) {
+			throw(new \RangeException("user state is too large"));
+		}
+
+		//show user state
+		$this->userState = $newUserState;
+	}
+
+	/**
+	 * accessor method to user zip code
+	 *
+	 * @return string value of user zip code
+	 */
+	public function getUserZip() {
+		return($this->userZip);
+	}
+
+	/**
+	 * mutator method for user zip
+	 *
+	 * @param string $newUserZip new value of user zip
+	 * @throws \InvalidArgumentException if $newUserZip is not a string or insecure
+	 * @throws \RangeException if $newUserZip is > 2 charaters
+	 * @throws \TypeError if $newUswerZip
+	 */
+	public function setUserZip(string $newUserZip) {
+		// verify the user zip is secure
+	$newUserZip = trim($newUserZip);
+		$newUserZip = filter_var($newUserZip, FILTER_FLAG_NO_ENCODE_QUOTES, FILTER_SANITIZE_STRING);
+		if(empty($newUserZip) === true) {
+			throw(new \InvalidArgumentException(" zip code is empty of insecure"));
+			}
+			// verify the user zip will fit in the database
+		if(strlen($newUserZip) >2 ){
+			throw(new \RangeException("user zip too large"));
+		}
+
+		// store the user zip
+		$this->userZip = $newUserZip;
+}
 
 
 
