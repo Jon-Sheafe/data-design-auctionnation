@@ -54,7 +54,31 @@ class user {//implements  // \JsonSerializable
 	 * @param int|null $userId id of the user or null if a new user
 	 * @param string userName
 	 */
-	public function__construct(int $newUserId = null, string  )
+	public function__construct(int $newUserId = null, string $userEmail, string $userPhone, string $userStreet, string $userCity, string $userState, string $userZip) {
+		try {
+			$this->setUserId($newUserId);
+			$this->setUserName($newUserName);
+			$this->setUserEmail($newUserEmail);
+			$this->setUserPhone($newUserPhone);
+			$this->setUserStreet($newUserStreet);
+			$this->setUserCity($newUserCity);
+			$this->setUserState($newUserState);
+			$this->setUserZip($newUserZip);
+}		catch(\InvalidArgumentException $invalidArgument) {
+	// rethrow the exception to the caller
+			throw(new \RangeException $range);
+		// rethrow the exception to the caller
+}		catch(\RangeException $range) {
+		// rethrow the exception to the caller
+}		throw(new \RangeException($range->getMessage(), 0, $range));
+		catch(\TypeError $typeError) {
+			//rethrow the exception to the caller
+			throw(new \TypeError($typeError->getMessage()), 0, $typeError);
+		}catch(\Exception $exception) {
+			// rethrow the exception to the caller
+			throw(new \Exception($exception->getMessage(), 0, $exceptionn));
+	}
+}
 
 	/**
 	 * accessor method for user id
