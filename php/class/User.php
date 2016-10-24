@@ -54,7 +54,7 @@ class user {//implements  // \JsonSerializable
 	 * @param int|null $userId id of the user or null if a new user
 	 * @param string userName
 	 */
-	public function__construct(int $newUserId = null, string $userEmail, string $userPhone, string $userStreet, string $userCity, string $userState, string $userZip) {
+	public function __construct(int $newUserId = null, string $newUserName, string $newUserEmail, string $newUserPhone, string $newUserStreet, string $newUserCity, string $newUserState, string $newUserZip) {
 		try {
 			$this->setUserId($newUserId);
 			$this->setUserName($newUserName);
@@ -66,17 +66,17 @@ class user {//implements  // \JsonSerializable
 			$this->setUserZip($newUserZip);
 }		catch(\InvalidArgumentException $invalidArgument) {
 	// rethrow the exception to the caller
-			throw(new \RangeException $range);
+			throw(new \InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
 		// rethrow the exception to the caller
-}		catch(\RangeException $range) {
+}		catch(\RangeException $range)  {
 		// rethrow the exception to the caller
-}		throw(new \RangeException($range->getMessage(), 0, $range));
-		catch(\TypeError $typeError) {
+			throw(new \RangeException($range->getMessage(), 0, $range));}
+		catch(\TypeError $typeError){
 			//rethrow the exception to the caller
-			throw(new \TypeError($typeError->getMessage()), 0, $typeError);
+			throw(new \TypeError($typeError->getMessage(), 0, $typeError));
 		}catch(\Exception $exception) {
 			// rethrow the exception to the caller
-			throw(new \Exception($exception->getMessage(), 0, $exceptionn));
+			throw(new \Exception($exception->getMessage(), 0, $exception));
 	}
 }
 
@@ -339,9 +339,10 @@ class user {//implements  // \JsonSerializable
 
 		// store the user zip
 		$this->userZip = $newUserZip;
-}
+	}
 
 
+$testUser = new User (null, 39, "@sirlozano don't you just love object oriented? #webdev", new \DateTime());
 
 
 
