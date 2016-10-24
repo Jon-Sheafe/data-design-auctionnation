@@ -48,7 +48,13 @@ class user {//implements  // \JsonSerializable
 
 
 //constructor goes here later
-
+	/**
+	 * Constrctor for the User
+	 *
+	 * @param int|null $userId id of the user or null if a new user
+	 * @param string userName
+	 */
+	public function__construct(int $newUserId = null, string  )
 
 	/**
 	 * accessor method for user id
